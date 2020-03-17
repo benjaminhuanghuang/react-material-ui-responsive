@@ -27,19 +27,19 @@ const useStyles = makeStyles({
 export default function PeopleCard(props: IUser) {
   const classes = useStyles()
 
-  const {email} = props
+  const {email, firstName, lastName, avatar} = props
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={avatar}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {firstName + " " +lastName}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
            {email}
@@ -47,8 +47,8 @@ export default function PeopleCard(props: IUser) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
+        <Button href= "{avatar}" size="small" color="primary">
+          Thumbnail Pic
         </Button>
       </CardActions>
     </Card>

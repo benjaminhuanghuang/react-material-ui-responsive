@@ -5,7 +5,7 @@ import { Grid } from "@material-ui/core";
 import axios from "axios";
 //
 import PeopleCard from "./components/PeopleCard";
-import {IUser} from "./interfaces"
+import { IUser } from "./interfaces";
 //
 import "./App.css";
 
@@ -41,9 +41,15 @@ function App() {
 
       <Grid container spacing={10} style={{ padding: "24px" }}>
         {users.map(
-          (user:IUser): JSX.Element => (
-            <Grid item xs={12} sm={6} lg={4} xl={4}>
-              <PeopleCard email={user.email}></PeopleCard>
+          (user: IUser): JSX.Element => (
+            <Grid key={user.id} item xs={12} sm={6} lg={4} xl={4}>
+              <PeopleCard
+                id={user.id} 
+                email={user.email}
+                firstName={user.firstName}
+                lastName={user.lastName}
+                avatar={user.avatar}
+              ></PeopleCard>
             </Grid>
           )
         )}
@@ -53,4 +59,3 @@ function App() {
 }
 
 export default App;
-  
